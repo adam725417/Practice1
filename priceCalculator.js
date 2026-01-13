@@ -12,6 +12,11 @@ function calculatePrice({ amount, memberType, coupon }) {
     return amount;
   }
 
+  // VIP 會員，無優惠券時，輸入金額的 9 折等於輸出金額
+  if (memberType === 'vip' && coupon === null) {
+    return amount * 0.9;
+  }
+
   // 其他情況的邏輯可以之後再實作
   return amount;
 }
